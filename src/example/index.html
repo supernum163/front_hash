@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div id="hash_str" class="eaxmple">
+      <h2>计算字符串hash值</h2>
+      <div class="input">
+        <input type="text" placeholder="请输入字符串">
+        <select>
+          <option value="" disabled>请选择一项计算方法</option>
+          <optgroup label="MD5">
+            <option value="md5_str" selected>计算md5</option>
+          </optgroup>
+          <optgroup label="sha1">
+            <option value="sha1_str">计算sha1</option>
+          </optgroup>
+          <optgroup label="sha2">
+            <option value="sha256_str">计算sha2(256)</option>
+            <option value="sha224_str">计算sha2(224)</option>
+            <option value="sha384_str">计算sha2(384)</option>
+            <option value="sha512_str">计算sha2(512)</option>
+            <option value="sha512_224_str">计算sha2(512/224)</option>
+            <option value="sha512_256_str">计算sha2(512/256)</option>
+          </optgroup>
+          <optgroup label="sha3">
+            <option value="sha3_224_str">计算sha3(224)</option>
+            <option value="sha3_256_str">计算sha3(256)</option>
+            <option value="sha3_384_str">计算sha3(384)</option>
+            <option value="sha3_512_str">计算sha3(512)</option>
+            <option value="shake_128_str">计算shake(128)</option>
+            <option value="shake_256_str">计算shake(256)</option>
+          </optgroup>
+          <optgroup label="blake2">
+            <option value="blake2b_160_str">计算blake2b(160)</option>
+            <option value="blake2b_256_str">计算blake2b(256)</option>
+            <option value="blake2b_384_str">计算blake2b(384)</option>
+            <option value="blake2b_512_str">计算blake2b(512)</option>
+            <option value="blake2s_128_str">计算blake2s(128)</option>
+            <option value="blake2s_160_str">计算blake2s(160)</option>
+            <option value="blake2s_224_str">计算blake2s(224)</option>
+            <option value="blake2s_256_str">计算blake2s(256)</option>
+          </optgroup>
+        </select>
+        <button>点击计算hash值</button>
+      </div>
+      <div class="output">
+        <span>计算结果：</span>
+        <pre></pre>
+        <button>复制</button>
+      </div>
+    </div>
+    <div id="hash_blob" class="eaxmple mt-3">
+      <h2>计算文件hash值</h2>
+      <div class="input">
+        <input type="file" placeholder="点击选择文件">
+        <select>
+          <option value="" disabled>请选择一项计算方法</option>
+          <optgroup label="MD5">
+            <option value="md5_blob" selected>计算md5</option>
+          </optgroup>
+          <optgroup label="sha1">
+            <option value="sha1_blob">计算sha1</option>
+          </optgroup>
+          <optgroup label="sha2">
+            <option value="sha256_blob">计算sha2(256)</option>
+            <option value="sha224_blob">计算sha2(224)</option>
+            <option value="sha384_blob">计算sha2(384)</option>
+            <option value="sha512_blob">计算sha2(512)</option>
+            <option value="sha512_224_blob">计算sha2(512/224)</option>
+            <option value="sha512_256_blob">计算sha2(512/256)</option>
+          </optgroup>
+          <optgroup label="sha3">
+            <option value="sha3_224_blob">计算sha3(224)</option>
+            <option value="sha3_256_blob">计算sha3(256)</option>
+            <option value="sha3_384_blob">计算sha3(384)</option>
+            <option value="sha3_512_blob">计算sha3(512)</option>
+            <option value="shake_128_blob">计算shake(128)</option>
+            <option value="shake_256_blob">计算shake(256)</option>
+          </optgroup>
+          <optgroup label="blake2">
+            <option value="blake2b_160_blob">计算blake2b(160)</option>
+            <option value="blake2b_256_blob">计算blake2b(256)</option>
+            <option value="blake2b_384_blob">计算blake2b(384)</option>
+            <option value="blake2b_512_blob">计算blake2b(512)</option>
+            <option value="blake2s_128_blob">计算blake2s(128)</option>
+            <option value="blake2s_160_blob">计算blake2s(160)</option>
+            <option value="blake2s_224_blob">计算blake2s(224)</option>
+            <option value="blake2s_256_blob">计算blake2s(256)</option>
+          </optgroup>
+        </select>
+        <button>点击计算hash值</button>
+      </div>
+      <div class="output">
+        <span>计算结果：</span>
+        <pre></pre>
+        <button>复制</button>
+      </div>
+    </div>
+    <div id="toast">复制成功</div>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+
+body {
+  max-width: 976px;
+  margin: auto;
+}
+
+.mt-3 {
+  margin-top: 3rem !important;
+}
+
+select, input, button {
+  border-radius: 0.5rem;
+  border: 1px solid;
+}
+select, button {
+  background-color: rgba(0,0,0,0.1);
+}
+select:focus, select:hover, button:hover, button:focus {
+  background-color: rgba(0,0,0,0.2);
+  outline: 2px solid rgba(0,0,0,0.5);
+}
+input:focus-visible, input:focus-within {
+  outline: 2px solid rgba(0,0,0,0.5);
+}
+
+.eaxmple {
+  margin: 1rem 0;
+}
+
+.input, .output {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 0.25rem;
+}
+.input>input, .output>pre {
+  flex-grow: 1;
+}
+.input>*, .output>* {
+  padding: 0.5rem 1rem;
+  margin: 0.1rem;
+}
+
+.input {
+  flex-wrap: wrap;
+}
+
+.output {
+  border: 1px solid black;
+  border-radius: 0.5rem;
+}
+.output>span, .output>button {
+  background-color: rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+.output>pre {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 3rem;
+}
+pre.error {
+  color: red;
+}
+
+#toast {
+  display: none;
+  position: absolute;
+  white-space: nowrap;
+  background-color: white;
+  border: 1px solid;
+  padding: 0.25rem;
+  font-size: small;
+  transform: translateX(-50%);
+}
