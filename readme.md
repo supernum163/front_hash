@@ -27,7 +27,7 @@ let hash_from_blob = await FRONT_HASH.md5_blob(file);
 console.log(hash_from_blob);
 ```
 
-更详细的示例请参考本项目中的 **/dist/example/index.html**
+更详细的示例请参考本项目中的 **/dist/example/**
 
 
 ## 可用函数
