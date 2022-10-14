@@ -3,7 +3,7 @@ import { f_utf8_enc, new_array } from "./utils.js";
 
 // 核心实现类
 class Hash_x32 {
-  constructor(batch_size = 64, m_size = 64){
+  constructor(batch_size = 64, m_size = 64) {
     // 每次需要处理的数据量
     this.batch_size = batch_size;
     // 最后一个批次的数据，数据量不能大于等于这个值

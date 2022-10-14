@@ -4,6 +4,7 @@ import * as UTILS from "../src/utils.js"
 
 const test = new Test("/src/utils.js");
 
+test.assert(2, UTILS.f_mod, [-1442175280, 3]);
 test.assert("11110010 00000000 00000000 00000000", UTILS.f_bit_to_str_10_x32, 0xF2);
 test.assert("10000010 00010001 11110011 00101001 00010001 10100000 01011010 01110000", UTILS.f_bit_to_str_01_x64, [[0x8211f329, 0x11a05a70]]);
 test.assert([0, 1], UTILS.f_bit_and_x64, [[1, 1], [2, 1]]);
@@ -23,4 +24,3 @@ test.assert([0x80000000 | 0, 0x00000000 | 0], UTILS.f_bit_add_x64, [[0x7FFFFFFF,
 
 
 console.log(import.meta.url.replace(/^.*front_hash/, ''), " 测试完毕\n");
-

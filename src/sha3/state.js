@@ -1,4 +1,4 @@
-import { f_bit_to_hex_x8, new_array, new_cube, new_matrix } from "../utils.js";
+import { new_array, new_matrix, new_cube, f_mod, f_bit_to_hex_x8 } from "../utils.js";
 
 class State {
   constructor(b, nr, d) {
@@ -83,13 +83,6 @@ class State {
     }
     return arr;
   }
-  mod(n, m) {
-    if (n < 0) {
-      return n % m + m;
-    } else {
-      return n % m;
-    }
-  }
   Theta() {
     // C[x, z] = A[x, 0, z] ⊕ A[x, 1, z] ⊕ A[x, 2, z] ⊕ A[x, 3, z] ⊕ A[x, 4, z]
     this.Theta_C.map(e=>e.fill(0));
@@ -106,7 +99,7 @@ class State {
       for (let z = 0; z < this.w; z++) {
         x1 = this.loop_minus[x];
         x2 = this.loop_add[x];
-        z2 = this.mod(z - 1, this.w);
+        z2 = f_mod(z - 1, this.w);
         this.Theta_D[x][z] = this.Theta_C[x1][z] ^ this.Theta_C[x2][z2];
       }
     }
@@ -165,7 +158,7 @@ class State {
   }
   rc(t) {
     // If t mod 255 = 0, return 1
-    let n = this.mod(t, 255);
+    let n = f_mod(t, 255);
     if (n === 0) return 1;
     // Let R = 10000000
     let R = 0x80;
@@ -189,7 +182,7 @@ class State {
   Iota(ir) {
     // RC[2j – 1] = rc(j + 7ir)
     for (let j = 0; j <= this.l; j++) {
-      let i = this.mod(j + 7 * ir, 255)
+      let i = f_mod(j + 7 * ir, 255)
       this.Iota_RC[2 ** j - 1] = this.rc_cache[i];
     }
     // A′ [0, 0, z] = A′ [0, 0, z] ⊕ RC[z]

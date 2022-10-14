@@ -64,14 +64,15 @@ console.log(hash_from_blob);
   - 对于`blake2b_*`，key的长度必须在0至于64字节之间
   - 对于`blake2s_*`，key的长度必须在0至于32字节之间
   - key字符串中超出限定长度的字符将被忽略
+- 函数输出值均为16进制字符（0-9a-z），英文字符均为小写
 - 函数名中的最后三位数字一般表示输出的hash值长度（bit）
-  - 比如`sha256_str`，256表示输出的hash长度为256bit，即32 bytes，64个字符
+  - 比如`sha256_str`，256表示输出的hash长度为256bit，即32个字节，64个字符
   - 对于可变长hash值计算函数 `shake_*`而言， `shake_128_*`的默认输出长度为32个字符， `shake_256_*`的默认输出长度为64个字符
   - `md5_*`的输出长度为32个字符
   - `sha1_*`的输出长度为40个字符
 - 部分函数名中包含多组数字，如`sha512_256_*`,其本质上是sha512的算法适配了256bit的输出
 - 部分函数中对于输入信息的字节长度是有限制的，这一般是由于函数中用到了输入长度，且方法定义中长度信息被定义为32bit或64bit等类型的数值，超出这个限制将产生谬误
-  - 注意 2 ** 32 bytes == 4Gb
+  - 注意 2 ** 32 bytes == 4 Gb
   - 不建议直接计算超大文件的hash值，如果一定要做，请考虑使用Blob分批次计算
 - 注意所有计算blob的函数都是 **异步** 的
 
@@ -80,10 +81,13 @@ console.log(hash_from_blob);
 
 本项目中的hash值计算方式主要参考 [ietf](https://www.ietf.org/) 以及 [uist](https://www.nist.gov/)。相关文档列举如下：
 
-| 文档                  | 相关加密算法    |
-|:--------------------- |:-------------- |
-| rfc321.pdf            | md5            |
-| NIST_FIPS_180-4.pdf   | SHA1, SHA2     |
-| NIST_FIPS_202.pdf     | SHA3           |
-| rfc7693.pdf           | blake2         |
+| 文档                  | 相关加密算法                            |
+|:--------------------- |:-------------------------------------- |
+| rfc321.pdf            | md5                                    |
+| NIST_FIPS_180-4.pdf   | SHA1, SHA2                             |
+| NIST_FIPS_202.pdf     | SHA3                                   |
+| rfc7693.pdf           | blake2                                 |
+| rfc2104.pdf           | HMAC                                   |
+| rfc2104.pdf           | PBKDF1, PBKDF2, PBES1, PBES2, PBMAC    |
+| rfc7914.pdf           | scrypt                                 |
 

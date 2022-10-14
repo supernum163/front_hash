@@ -11,8 +11,14 @@ const new_array = (n, e = 0) => Array(n).fill(e);
 const new_matrix = (n, m, e = 0) => Array(n).fill(0).map(i => new_array(m, e));
 const new_cube = (n, m, l, e = 0) => Array(n).fill(0).map(i => new_matrix(m, l, e));
 
+// 求余数
+const f_mod = (n, m) => {
+  let r = n % m;
+  return r < 0 ? r + m: r;
+}
+
 // 使用func循环打印参数
-const f_bit_log = function(func){
+const f_bit_log = (func) => {
   return (...args) => console.log([...args].map(func));
 }
 
@@ -33,6 +39,20 @@ const f_utf8_enc = (s) => {
     }
   }
   return r;
+}
+
+// 将16进制字符串转化为二进制Byte
+const f_hex_to_bit_x8 = (hex) => {
+  let r = new_array(hex.length / 2);
+  return r.map((e, i) => 
+    HEX.indexOf(hex[2*i]) * 16 +  
+    HEX.indexOf(hex[2*i+1]) 
+  );
+}
+
+// 将二进制Byte转化为16进制字符串
+const f_bit_to_hex_x8 = (Byte) => {
+  return HEX[Byte >>> 4 & 0xF] + HEX[Byte & 0xF];
 }
 
 
@@ -64,11 +84,6 @@ const f_bit_add_x32 = (x, y) => {
   } else {
     return r ^ flag;            // 不需要进位，也不需要加上大数位
   }
-}
-
-// 将二进制Byte转化为16进制字符串
-const f_bit_to_hex_x8 = (Byte) => {
-  return HEX[Byte >>> 4 & 0xF] + HEX[Byte & 0xF];
 }
 
 // 将二进制bits转化为16进制字符串（小端模式）
@@ -258,12 +273,14 @@ export {
   new_array,
   new_matrix,
   new_cube,
+  f_mod,
   f_bit_log,
   f_utf8_enc,
+  f_hex_to_bit_x8,
+  f_bit_to_hex_x8,
   f_bit_rotate_left_x32,
   f_bit_rotate_right_x32,
   f_bit_add_x32,
-  f_bit_to_hex_x8,
   f_bit_to_hex_10_x32,
   f_bit_to_hex_01_x32,
   f_bit_to_str_10_x32,
